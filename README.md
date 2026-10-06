@@ -8,7 +8,7 @@
 
 页面同时保留核实过的静态入口，关闭 JavaScript 或 GitHub 匿名查询达到限额时仍可访问已有站点。浏览器不会包含任何登录令牌。
 
-`sync_sites.py` 使用相同筛选规则将目录写回 `index.html`。GitHub Actions（GitHub 的自动任务服务）工作流草稿位于 `.github/workflows/sync-and-deploy.yml`，计划每小时第23分钟同步一次，也支持手动运行。定时任务需要先成功上传并启用工作流，最终启用状态以仓库 Actions 页面为准。
+`sync_sites.py` 使用相同筛选规则将目录写回 `index.html`。GitHub Actions（GitHub 的自动任务服务）工作流草稿位于 `sync-and-deploy.yml`，计划每小时第23分钟同步一次，也支持手动运行。**定时任务尚未启用：当前授权只有 `repo`，GitHub 明确拒绝上传工作流，原因是缺少 `workflow` 权限。** 补齐授权后，将草稿移动到 `.github/workflows/sync-and-deploy.yml`，再把 Pages 发布源切换为 GitHub Actions，运行工作流即可。打开主页时的自动发现已经生效，不依赖后台工作流。
 
 自动任务使用 GitHub 提供的 `GITHUB_TOKEN`（只在运行时提供给任务的令牌），查询公开仓库、保存目录变化，并显式发布 Pages；这样可以避免自动提交不触发分支式 Pages 发布的问题。无需额外存储个人访问令牌。请求失败时任务报错，保留上一次已发布的内容。
 

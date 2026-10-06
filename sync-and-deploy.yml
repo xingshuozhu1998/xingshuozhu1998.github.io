@@ -1,0 +1,46 @@
+name: 同步站点目录并发布主页
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: '23 * * * *'
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: pages-home
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: 同步全部公开 Pages 项目
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python3 sync_sites.py
+      - name: 保存变化后的目录
+        run: |
+          if ! git diff --quiet -- index.html; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add index.html
+            git commit -m '自动同步公开 Pages 站点目录'
+            git push
+          fi
+      - uses: actions/configure-pages@v5
+      - name: 打包主页
+        run: |
+          mkdir _site
+          cp index.html .nojekyll _site/
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - name: 发布主页
+        id: deployment
+        uses: actions/deploy-pages@v4
