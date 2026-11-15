@@ -1,10 +1,10 @@
 # 我的学习站点
 
-主页：<https://xingshuozhu1998.github.io/>。这是公开项目的网站目录，每个入口同时提供网站链接和仓库链接。当前收录 LLM Atlas、Lilian Weng 中文阅读站、Linux C 编程一站式学习、[Spinning Up 中文教程](https://xingshuozhu1998.github.io/spinningup-zh/)；主页自身的仓库在页脚提供入口。
+主页：<https://xingshuozhu1998.github.io/>。这是公开项目的网站目录，每个入口同时提供网站链接和仓库链接。当前收录 LLM Atlas、Lilian Weng 中文阅读站、Linux C 编程一站式学习、[Spinning Up 中文教程](https://xingshuozhu1998.github.io/spinningup-zh/)；另收录 [vLLM 中文文档](https://xingshuozhu1998.github.io/vllm-zh/)和 [SGLang 中文文档](https://xingshuozhu1998.github.io/sglang-zh/)；主页自身的仓库在页脚提供入口。
 
 ## 自动收录
 
-浏览器打开主页时查询账号的公开仓库，收录 `has_pages=true`（已经启用 GitHub Pages）的项目。已有四个项目保留审核过的中文介绍，新项目使用仓库名和仓库简介，按 `https://xingshuozhu1998.github.io/仓库名/` 建立入口。关闭 Pages 的项目会从成功同步后的目录中移除；私有仓库不会展示。
+浏览器打开主页时查询账号的公开仓库，收录 `has_pages=true`（已经启用 GitHub Pages）的项目。已知项目保留审核过的中文介绍，新项目使用仓库名和仓库简介，按 `https://xingshuozhu1998.github.io/仓库名/` 建立入口。关闭 Pages 的项目会从成功同步后的目录中移除；私有仓库不会展示。
 
 页面同时保留核实过的静态入口，关闭 JavaScript 或 GitHub 匿名查询达到限额时仍可访问已有站点。浏览器不会包含任何登录令牌。
 
