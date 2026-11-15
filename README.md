@@ -37,3 +37,7 @@ python3 -m http.server 8000 --bind 127.0.0.1
 自动发现使用模拟新增站点、超过100个仓库的分页、关闭Pages、私有仓库及主页自身等场景验证：新增公开站点自动出现，其余非目录项目不展示。模拟匿名API限额错误时，三个静态入口仍然保留。后台脚本已在真实公开仓库列表上运行，结果与三个已发布项目一致。
 
 每小时后台同步已启用。首次真实仓库查询与发布[运行成功](https://github.com/xingshuozhu1998/xingshuozhu1998.github.io/actions/runs/37439498269)；随后通过一次已核实的中文介绍更新，实际验证了“生成变化 → 自动提交 → 自动发布”的完整流程，[第二次运行成功](https://github.com/xingshuozhu1998/xingshuozhu1998.github.io/actions/runs/37439792294)。机器人生成提交 `0695c5179c19fe56778781b121984394ddb4ba51`，正式主页的响应内容与该提交的 `index.html` 字节完全一致，三个项目网站仍返回 HTTP 200。定时配置为每小时第23分钟；上述验收实际运行由源码更新触发，未等待下一次定时触发。
+
+## Miles 中文文档
+
+[Miles 中文文档](https://xingshuozhu1998.github.io/miles-docs/) 使用 GitHub Pages 提供独立的静态阅读版本；原始 Mintlify 配置保留。克隆 [miles-docs 仓库](https://github.com/xingshuozhu1998/miles-docs) 后，运行 `cd docs && npx --yes mint dev --port 3001`，在本地打开 `http://localhost:3001/index_zh`。主页卡片和文档首页均明确注明这一点。
