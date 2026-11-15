@@ -41,3 +41,7 @@ python3 -m http.server 8000 --bind 127.0.0.1
 ## Miles 中文文档
 
 [Miles 中文文档](https://xingshuozhu1998.github.io/miles-docs/) 使用 GitHub Pages 提供独立的静态阅读版本；原始 Mintlify 配置保留。克隆 [miles-docs 仓库](https://github.com/xingshuozhu1998/miles-docs) 后，运行 `cd docs && npx --yes mint dev --port 3001`，在本地打开 `http://localhost:3001/index_zh`。主页卡片和文档首页均明确注明这一点。
+
+## Harbor 中文文档与 Cookbook
+
+[Harbor 中文文档与 Cookbook](https://xingshuozhu1998.github.io/harbor-zh/) 使用独立的 [harbor-zh 仓库](https://github.com/xingshuozhu1998/harbor-zh)发布，包含 91 篇中文页面；API & SDK、News、Changelog 保留英文。主页使用 `knownSites` 中的中文介绍，并在 Pages 启用后自动收录。
